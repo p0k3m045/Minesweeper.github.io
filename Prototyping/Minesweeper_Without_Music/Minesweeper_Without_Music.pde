@@ -499,7 +499,7 @@ class Cell {
 
     if (!revealed) {
 
-      fill(120);
+      fill(106, 245, 107);
 
       rect(
         x,
@@ -534,7 +534,7 @@ class Cell {
 
     else {
 
-      fill(200);
+      fill(53, 131, 54);
 
       rect(
         x,
