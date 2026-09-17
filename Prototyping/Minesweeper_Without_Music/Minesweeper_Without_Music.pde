@@ -368,6 +368,12 @@ void revealAllMines() {
 
       if (board[row][col].mine) {
 
+        int randColour1 = int(random(0,256));
+        int randColour2 = int(random(0,256));
+        int randColour3 = int(random(0,256));
+        
+        fill(randColour1, randColour2, randColour3);
+        
         board[row][col].revealed = true;
       }
     }
