@@ -1,6 +1,5 @@
-//Minim library
-
 /*
+//Minim library
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
