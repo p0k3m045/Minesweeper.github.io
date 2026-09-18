@@ -1,3 +1,4 @@
+//Minim library
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -5,19 +6,47 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+Minim minim;
+int numberOfSongs = 3;
+int numberOfSoundEffects = 1;
+AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
+AudioMetaData[] playListMetaData = new AudioMetaData[ numberOfSongs ];
+AudioPlayer[] soundEffects = new AudioPlayer[ numberOfSoundEffects ];
+int currentSong = numberOfSongs - numberOfSongs;
+String[] songName = new String[numberOfSongs];
+
+
+//Global variables
 int appWidth;
 int appHeight;
 
 float buttonDivX, buttonDivY, buttonDivWidth, buttonDivHeight;
 float musicPlayerDivX, musicPlayerDivY, musicPlayerDivWidth, musicPlayerDivHeight;
+float playOrPauseButtonDivX, playOrPauseButtonDivY, playOrPauseButtonDivWidth, playOrPauseButtonDivHeight;
 
 float arrow1ForButtonDivY2, arrow3ForButtonDivY2;
 
 boolean buttonPressed = false;
 boolean draggingMusicPlayer = false;
 
+boolean isPaused = true;
+boolean isMuted = false;
+boolean autoPlay = false;
+
 float dragOffsetX;
 float dragOffsetY;
+
+String upArrow = "..";
+String open = "/";
+String dependenciesFolder = "Dependencies";
+String musicFolder = "Music";
+String soundEffectsFolder = "Sound Effects";
+String imagesFolder = "Images";
+
+
+
+
+
 
 void setup() {
   fullScreen();
@@ -29,8 +58,12 @@ void setup() {
   musicPlayerDivY = appHeight / 4;
 }
 
-void draw() {
 
+
+
+
+
+void draw() {
   background(100);
 
   // Button
@@ -38,6 +71,11 @@ void draw() {
   buttonDivY = appHeight * 92.5 / 100;
   buttonDivWidth = appWidth / 5;
   buttonDivHeight = appHeight / 20;
+
+  playOrPauseButtonDivX = musicPlayerDivX + musicPlayerDivWidth * 13/32;
+  playOrPauseButtonDivY = musicPlayerDivY + musicPlayerDivHeight * 6/8;
+  playOrPauseButtonDivWidth = musicPlayerDivWidth * 3/16;
+  playOrPauseButtonDivHeight = musicPlayerDivHeight * 3/16;
 
   float arrow1ForButtonDivX1 = buttonDivX + buttonDivWidth * 6/16;
   float arrow1ForButtonDivY1 = buttonDivY + buttonDivHeight * 1/3;
@@ -60,7 +98,7 @@ void draw() {
     arrow3ForButtonDivY2 = buttonDivY + buttonDivHeight * 3/6;
   } else {
     arrow3ForButtonDivY2 = buttonDivY + buttonDivHeight * 5/6;
-  }  
+  }
 
   float arrow4ForButtonDivX1 = buttonDivX + buttonDivWidth * 8/16;
   float arrow4ForButtonDivY1 = arrow3ForButtonDivY2;
@@ -91,11 +129,35 @@ void draw() {
   }
 }
 
+
+
+
+
+
+
 void musicPlayer() {
   fill(255);
   stroke(0);
   rect(musicPlayerDivX, musicPlayerDivY, musicPlayerDivWidth, musicPlayerDivHeight);
+
+  if (mouseX >= playOrPauseButtonDivX && mouseY >= playOrPauseButtonDivY && mouseX <= playOrPauseButtonDivX + playOrPauseButtonDivWidth && mouseY <= playOrPauseButtonDivY + playOrPauseButtonDivHeight) {
+    fill(0);
+    stroke(255);
+  } else {
+    fill(255);
+    stroke(0);
+  }
+  rect(playOrPauseButtonDivX, playOrPauseButtonDivY, playOrPauseButtonDivWidth, playOrPauseButtonDivHeight);
+
+  fill(255);
+  stroke(0);
 }
+
+
+
+
+
+
 
 void mouseClicked() {
 
@@ -110,10 +172,16 @@ void mouseClicked() {
   }
 }
 
+
+
+
+
+
+
 void mousePressed() {
 
   // Check if mouse is inside music player
-  if (buttonPressed == true && mouseX >= musicPlayerDivX && mouseX <= musicPlayerDivX + musicPlayerDivWidth && mouseY >= musicPlayerDivY && mouseY <= musicPlayerDivY + musicPlayerDivHeight) {
+  if (buttonPressed == true && mouseX >= musicPlayerDivX && mouseX <= musicPlayerDivX + musicPlayerDivWidth && mouseY >= musicPlayerDivY && mouseY <= musicPlayerDivY + musicPlayerDivHeight * 1/8) {
 
     draggingMusicPlayer = true;
 
@@ -122,6 +190,12 @@ void mousePressed() {
     dragOffsetY = mouseY - musicPlayerDivY;
   }
 }
+
+
+
+
+
+
 
 void mouseDragged() {
 
@@ -132,6 +206,11 @@ void mouseDragged() {
     musicPlayerDivY = mouseY - dragOffsetY;
   }
 }
+
+
+
+
+
 
 void mouseReleased() {
   draggingMusicPlayer = false;
