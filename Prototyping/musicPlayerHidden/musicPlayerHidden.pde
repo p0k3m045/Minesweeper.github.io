@@ -141,11 +141,9 @@ void musicPlayer() {
   rect(musicPlayerDivX, musicPlayerDivY, musicPlayerDivWidth, musicPlayerDivHeight);
 
   if (mouseX >= playOrPauseButtonDivX && mouseY >= playOrPauseButtonDivY && mouseX <= playOrPauseButtonDivX + playOrPauseButtonDivWidth && mouseY <= playOrPauseButtonDivY + playOrPauseButtonDivHeight) {
-    fill(0);
-    stroke(255);
+    fill(200);
   } else {
     fill(255);
-    stroke(0);
   }
   rect(playOrPauseButtonDivX, playOrPauseButtonDivY, playOrPauseButtonDivWidth, playOrPauseButtonDivHeight);
 
