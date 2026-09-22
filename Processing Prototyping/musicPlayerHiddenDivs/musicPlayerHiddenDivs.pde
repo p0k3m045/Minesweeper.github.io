@@ -25,6 +25,10 @@ void setup() {
   appWidth = displayWidth;
   appHeight = displayHeight;
 
+  println(displayWidth, displayHeight);
+
+  Divs();
+
   // Starting position of music player
   musicPlayerDivX = appWidth / 4;
   musicPlayerDivY = appHeight / 4;
@@ -119,13 +123,12 @@ void draw() {
 
   // Draw open/close button
   if (mouseX >= buttonDivX &&
-      mouseY >= buttonDivY &&
-      mouseX <= buttonDivX + buttonDivWidth &&
-      mouseY <= buttonDivY + buttonDivHeight) {
+    mouseY >= buttonDivY &&
+    mouseX <= buttonDivX + buttonDivWidth &&
+    mouseY <= buttonDivY + buttonDivHeight) {
 
     fill(0);
     stroke(255);
-
   } else {
 
     fill(255);
@@ -136,16 +139,16 @@ void draw() {
   rect(buttonDivX, buttonDivY, buttonDivWidth, buttonDivHeight);
 
   line(arrow1ForButtonDivX1, arrow1ForButtonDivY1,
-       arrow1ForButtonDivX2, arrow1ForButtonDivY2);
+    arrow1ForButtonDivX2, arrow1ForButtonDivY2);
 
   line(arrow2ForButtonDivX1, arrow2ForButtonDivY1,
-       arrow2ForButtonDivX2, arrow2ForButtonDivY2);
+    arrow2ForButtonDivX2, arrow2ForButtonDivY2);
 
   line(arrow3ForButtonDivX1, arrow3ForButtonDivY1,
-       arrow3ForButtonDivX2, arrow3ForButtonDivY2);
+    arrow3ForButtonDivX2, arrow3ForButtonDivY2);
 
   line(arrow4ForButtonDivX1, arrow4ForButtonDivY1,
-       arrow4ForButtonDivX2, arrow4ForButtonDivY2);
+    arrow4ForButtonDivX2, arrow4ForButtonDivY2);
 
 
   // Music player size
@@ -166,92 +169,87 @@ void musicPlayer() {
   stroke(0);
 
   rect(musicPlayerDivX, musicPlayerDivY,
-       musicPlayerDivWidth, musicPlayerDivHeight);
+    musicPlayerDivWidth, musicPlayerDivHeight);
 
 
   // Play/Pause button
   if (mouseX >= playOrPauseButtonDivX &&
-      mouseY >= playOrPauseButtonDivY &&
-      mouseX <= playOrPauseButtonDivX + playOrPauseButtonDivWidth &&
-      mouseY <= playOrPauseButtonDivY + playOrPauseButtonDivHeight) {
+    mouseY >= playOrPauseButtonDivY &&
+    mouseX <= playOrPauseButtonDivX + playOrPauseButtonDivWidth &&
+    mouseY <= playOrPauseButtonDivY + playOrPauseButtonDivHeight) {
 
     fill(200);
-
   } else {
 
     fill(255);
   }
 
   rect(playOrPauseButtonDivX, playOrPauseButtonDivY,
-       playOrPauseButtonDivWidth, playOrPauseButtonDivHeight);
+    playOrPauseButtonDivWidth, playOrPauseButtonDivHeight);
 
 
   // Next Song button
   if (mouseX >= nextSongDivX &&
-      mouseY >= nextSongDivY &&
-      mouseX <= nextSongDivX + nextSongDivWidth &&
-      mouseY <= nextSongDivY + nextSongDivHeight) {
+    mouseY >= nextSongDivY &&
+    mouseX <= nextSongDivX + nextSongDivWidth &&
+    mouseY <= nextSongDivY + nextSongDivHeight) {
 
     fill(200);
-
   } else {
 
     fill(255);
   }
 
   rect(nextSongDivX, nextSongDivY,
-       nextSongDivWidth, nextSongDivHeight);
+    nextSongDivWidth, nextSongDivHeight);
 
 
   // Skip 15 button
   if (mouseX >= skipFifteenDivX &&
-      mouseY >= skipFifteenDivY &&
-      mouseX <= skipFifteenDivX + skipFifteenDivWidth &&
-      mouseY <= skipFifteenDivY + skipFifteenDivHeight) {
+    mouseY >= skipFifteenDivY &&
+    mouseX <= skipFifteenDivX + skipFifteenDivWidth &&
+    mouseY <= skipFifteenDivY + skipFifteenDivHeight) {
 
     fill(200);
-
   } else {
 
     fill(255);
   }
 
   rect(skipFifteenDivX, skipFifteenDivY,
-       skipFifteenDivWidth, skipFifteenDivHeight);
+    skipFifteenDivWidth, skipFifteenDivHeight);
 
 
   // Previous button
   if (mouseX >= previousDivX &&
-      mouseY >= previousDivY &&
-      mouseX <= previousDivX + previousDivWidth &&
-      mouseY <= previousDivY + previousDivHeight) {
+    mouseY >= previousDivY &&
+    mouseX <= previousDivX + previousDivWidth &&
+    mouseY <= previousDivY + previousDivHeight) {
 
     fill(200);
-
   } else {
 
     fill(255);
   }
 
   rect(previousDivX, previousDivY,
-       previousDivWidth, previousDivHeight);
+    previousDivWidth, previousDivHeight);
 
 
   // Back 10 button
   if (mouseX >= backTenDivX &&
-      mouseY >= backTenDivY &&
-      mouseX <= backTenDivX + backTenDivWidth &&
-      mouseY <= backTenDivY + backTenDivHeight) {
+    mouseY >= backTenDivY &&
+    mouseX <= backTenDivX + backTenDivWidth &&
+    mouseY <= backTenDivY + backTenDivHeight) {
 
     fill(200);
-
   } else {
 
     fill(255);
   }
 
   rect(backTenDivX, backTenDivY,
-       backTenDivWidth, backTenDivHeight);
+    backTenDivWidth, backTenDivHeight);
 
 
   fill(255);
@@ -263,14 +261,13 @@ void mouseClicked() {
 
   // Open or close music player
   if (mouseX >= buttonDivX &&
-      mouseY >= buttonDivY &&
-      mouseX <= buttonDivX + buttonDivWidth &&
-      mouseY <= buttonDivY + buttonDivHeight) {
+    mouseY >= buttonDivY &&
+    mouseX <= buttonDivX + buttonDivWidth &&
+    mouseY <= buttonDivY + buttonDivHeight) {
 
     if (buttonPressed == false) {
 
       buttonPressed = true;
-
     } else {
 
       buttonPressed = false;
@@ -283,10 +280,10 @@ void mousePressed() {
 
   // Check if mouse is inside music player
   if (buttonPressed == true &&
-      mouseX >= musicPlayerDivX &&
-      mouseX <= musicPlayerDivX + musicPlayerDivWidth &&
-      mouseY >= musicPlayerDivY &&
-      mouseY <= musicPlayerDivY + musicPlayerDivHeight * 1/8) {
+    mouseX >= musicPlayerDivX &&
+    mouseX <= musicPlayerDivX + musicPlayerDivWidth &&
+    mouseY >= musicPlayerDivY &&
+    mouseY <= musicPlayerDivY + musicPlayerDivHeight * 1/8) {
 
     draggingMusicPlayer = true;
 
