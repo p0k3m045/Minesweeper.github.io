@@ -46,8 +46,8 @@ void Divs() {
   divs[22] = divs[6] * 4/32;
   divs[23] = divs[7] * 4/32;
 
-` // Progress bar
-  divs[24] = divs[4] + divs[6] * 26/32;
+  /* Progress bar
+    divs[24] = divs[4] + divs[6] * 26/32;
   divs[25] =  +  * ;
   divs[26] =  * ;
   divs[27] =  * ;
@@ -69,21 +69,46 @@ void Divs() {
   divs[37] =  +  * ;
   divs[38] =  * ;
   divs[39] =  * ;
-  
+  */
+
   for ( int i=0; i<4; i++ ) {
-    if ( i%4 == 0 ) {
+    if ( i%4 == 0  && int(i/4) == 0) {
       divs[i] = appWidth / 100;
+      
+    } else if ( i%4 == 0  && int(i/4) == 1) {
+      divs[i] = mouseX - dragOffsetX;
+      
+    } else if ( i%4 == 0  && int(i/4) == 2) {
+      divs[i] = divs[4] + divs[6] * 26/32;
+      
+    } else if ( i%4 == 0  && int(i/4) == 3) {
+    } else if ( i%4 == 0  && int(i/4) == 4) {
+    } else if ( i%4 == 0  && int(i/4) == 5) {
+
+
+
+
+
+
+      if ( i%4 == 1) {
+        divs[i] = appHeight * 92.5 / 100;
+      }
+
+
+
+
+
+
+      if ( i%4 == 2 ) {
+        divs[i] = appWidth / 5;
+      }
+
+
+
+
+
+
+      if ( i%4 == 3 ) {
+        divs[i] = appHeight / 20;
+      }
     }
-    
-    if ( i%4 == 1) {
-      divs[i] = appHeight * 92.5 / 100;
-    }
-    
-    if ( i%4 == 2 ) {
-      divs[i] = appWidth / 5;
-    }
-    
-    if ( i%4 == 3 ) {
-      divs[i] = appHeight / 20;
-    }
-}
