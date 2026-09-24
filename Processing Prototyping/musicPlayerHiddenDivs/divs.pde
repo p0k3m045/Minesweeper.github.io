@@ -4,6 +4,7 @@ int numberOfParameters = 4;
 float[] divs = new float[numberOfDivs * numberOfParameters];
 
 void Divs() {
+  /*
   // Button
   divs[0] = appWidth / 100;
   divs[1] = appHeight * 92.5 / 100;
@@ -45,7 +46,7 @@ void Divs() {
   divs[21] = divs[5] + divs[7] * 25/32;
   divs[22] = divs[6] * 4/32;
   divs[23] = divs[7] * 4/32;
-
+*/
   /* Progress bar
     divs[24] = divs[4] + divs[6] * 26/32;
   divs[25] =  +  * ;
@@ -71,15 +72,21 @@ void Divs() {
   divs[39] =  * ;
   */
 
+
+
+
   for ( int i=0; i<4; i++ ) {
     if ( i%4 == 0  && int(i/4) == 0) {
+      // buttonDivX
       divs[i] = appWidth / 100;
       
     } else if ( i%4 == 0  && int(i/4) == 1) {
-      divs[i] = mouseX - dragOffsetX;
+      // musicPlayerDivX
+      divs[i] = musicPlayerDivX;
       
     } else if ( i%4 == 0  && int(i/4) == 2) {
-      divs[i] = divs[4] + divs[6] * 26/32;
+      // previousDivX
+      divs[i] = musicPlayerDivX + musicPlayerDivWidth * 26/32;
       
     } else if ( i%4 == 0  && int(i/4) == 3) {
     } else if ( i%4 == 0  && int(i/4) == 4) {
@@ -112,3 +119,4 @@ void Divs() {
         divs[i] = appHeight / 20;
       }
     }
+    

@@ -27,7 +27,7 @@ void setup() {
 
   println(displayWidth, displayHeight);
 
-  Divs();
+  //Divs();
 
   // Starting position of music player
   musicPlayerDivX = appWidth / 4;
