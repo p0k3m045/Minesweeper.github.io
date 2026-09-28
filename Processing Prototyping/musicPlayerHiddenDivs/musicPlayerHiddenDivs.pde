@@ -27,7 +27,7 @@ void setup() {
 
   println(displayWidth, displayHeight);
 
-  //Divs();
+  Divs();
 
   // Starting position of music player
   musicPlayerDivX = appWidth / 4;
@@ -37,7 +37,7 @@ void setup() {
 
 void draw() {
 
-  background(100);
+  //background(100);
 
 
   // Button
