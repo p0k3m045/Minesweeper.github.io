@@ -5,6 +5,8 @@ int appHeight;
 boolean buttonPressed = false;
 boolean draggingMusicPlayer = false;
 
+
+
 float dragOffsetX;
 float dragOffsetY;
 
@@ -23,15 +25,9 @@ void setup() {
 
 
 void draw() {
-
   background(100);
 
-  fill(#FFFFFF);
-  stroke(#000000);
 
-  if (buttonPressed == true) {
-    Divs();
-  }
 
   // Button
   buttonDivX = appWidth / 100;
@@ -108,6 +104,13 @@ void draw() {
 
   line(arrow4ForButtonDivX1, arrow4ForButtonDivY1,
     arrow4ForButtonDivX2, arrow4ForButtonDivY2);
+
+  fill(#FFFFFF);
+  stroke(#000000);
+
+  if (buttonPressed == true) {
+    Divs();
+  }
 }
 
 
@@ -131,16 +134,16 @@ void mouseClicked() {
 // Start dragging
 void mousePressed() {
 
-  if (buttonPressed == true &&
-    mouseX >= divs[0] &&
-    mouseX <= divs[0] + divs[2] &&
-    mouseY >= divs[1] &&
-    mouseY <= divs[1] + divs[3] * 1/8) {
+  if (buttonPressed == true && mouseX >= divs[0] && mouseX <= divs[0] + divs[2] && mouseY >= divs[1] && mouseY <= divs[1] + divs[3] * 1/8) {
+    if (mouseX >= divs[4] && mouseX <= divs[4] + divs[6] && mouseY >= divs[5] && mouseY <= divs[5] + divs[7]) {
+    } else if (mouseX >= divs[8] && mouseX <= divs[8] + divs[10] && mouseY >= divs[9] && mouseY <= divs[9] + divs[11]) {
+    } else {
+      
+      draggingMusicPlayer = true;
 
-    draggingMusicPlayer = true;
-
-    dragOffsetX = mouseX - divs[0];
-    dragOffsetY = mouseY - divs[1];
+      dragOffsetX = mouseX - divs[0];
+      dragOffsetY = mouseY - divs[1];
+    }
   }
 }
 
