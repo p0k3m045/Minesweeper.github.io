@@ -81,8 +81,8 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   if (index == 4) {
 
     drawArc(
-      divX + divDimension / 2,
-      divY + divDimension / 2,
+      divX + smallerNum(smallerNum(divDimension)),
+      divY + smallerNum(smallerNum(divDimension)),
       divDimension * 3 / 4,
       PI+PI*1/2,
       PI+PI*2
@@ -181,7 +181,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawNarrowTriangle(
       1,
-      divX+smallerNum(divDimension),
+      divX+smallerNum(smallerNum(divDimension)),
       divY,
       divDimension
       );
@@ -203,7 +203,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawRectangle(
       1,
-      divX+smallerNum(divDimension),
+      divX+smallerNum(smallerNum(divDimension)),
       divY,
       divDimension,
       divDimension
