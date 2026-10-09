@@ -36,12 +36,10 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   if (index==5 || index==6 || index==9 || index==10 || index==11) {
 
     // No Square
-
   } else if (index==3 || index==4) {
 
     // No Square & Reverse Triangle
     divX = divX + divDimension;
-
   } else {
 
     drawMusicDivs(divX, divY, divDimension);
@@ -76,27 +74,57 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       );
   }
 
-
   // --------------------------------------------- //
-  //                   REWIND                     //
+  //                   BACK 10                     //
   // --------------------------------------------- //
 
-  if (index==4) {
+  if (index == 4) {
 
-    drawNarrowTriangle(
-      -1,
-      divX,
-      divY,
-      divDimension
+    drawArc(
+      divX + divDimension / 2,
+      divY + divDimension / 2,
+      divDimension * 3 / 4,
+      PI+PI*1/2,
+      PI+PI*2
       );
 
-    drawNarrowTriangle(
+    // Arrowhead
+    drawWideTriangle(
       -1,
-      divX-smallerNum(divDimension),
-      divY,
-      divDimension
+      divX + divDimension * 0.25,
+      divY + divDimension * 0.05,
+      divDimension / 4
       );
   }
+
+
+  // --------------------------------------------- //
+  //                   SKIP 15                     //
+  // --------------------------------------------- //
+
+  if (index == 9) {
+/*
+    drawArc(
+      divX + divDimension / 2,
+      divY + divDimension / 2,
+      divDimension * 3 / 4,
+      225,
+      495
+      );
+
+    // Arrowhead
+    fill(0);
+    triangle(
+      divX + divDimension * 0.75,
+      divY + divDimension * 0.05,
+      divX + divDimension * 0.95,
+      divY + divDimension * 0.25,
+      divX + divDimension * 0.65,
+      divY + divDimension * 0.30
+      );
+      */
+  }
+
 
 
   // --------------------------------------------- //
@@ -130,6 +158,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   if (index==6) {
 
     drawWideTriangle(
+      1,
       divX,
       divY,
       divDimension
@@ -189,7 +218,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
 float smallerNum(float divXY, float divDimension) {
 
-  return divXY + divDimension*1/4;
+  return divXY + divDimension*1/2;
 }
 
 
@@ -229,6 +258,7 @@ void drawLines(
 // --------------------------------------------- //
 
 void drawWideTriangle(
+  int reverse,
   float divX,
   float divY,
   float divDimension) {
@@ -236,7 +266,7 @@ void drawWideTriangle(
   triangle(
     divX,
     divY,
-    divX+divDimension,
+    divX+reverse*smallerNum(divDimension),
     divY+smallerNum(divDimension),
     divX,
     divY+divDimension
@@ -304,5 +334,28 @@ void drawMusicDivs(
     y,
     d,
     d
+    );
+}
+
+
+// --------------------------------------------- //
+//                    DRAW ARC                   //
+// --------------------------------------------- //
+
+void drawArc(
+  float x,
+  float y,
+  float d,
+  float startAngle,
+  float stopAngle
+  ) {
+
+  arc(
+    x,
+    y,
+    d,
+    d,
+    startAngle,
+    stopAngle
     );
 }
