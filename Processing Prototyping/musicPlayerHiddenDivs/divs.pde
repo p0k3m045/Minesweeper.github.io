@@ -13,7 +13,7 @@ void Divs() {
   // Main music player
 
   /*
-    divs[0] = mouseX - dragOffsetX;
+   divs[0] = mouseX - dragOffsetX;
    divs[1] = mouseY - dragOffsetY;
    */
 
@@ -33,10 +33,10 @@ void Divs() {
   // --------------------------------------------- //
 
   float column1 = divs[0] + referent * 4;
-  float column2 = divs[0] + referent * 15;
-  float column3 = divs[0] + referent * 26;
-  float column4 = divs[0] + referent * 41;
-  float column5 = divs[0] + referent * 52;
+  float column2 = column1 + referent * 11;
+  float column3 = column2 + referent * 11;
+  float column4 = column3 + referent * 15;
+  float column5 = column4 + referent * 11;
 
 
   // --------------------------------------------- //
@@ -44,10 +44,10 @@ void Divs() {
   // --------------------------------------------- //
 
   float row1 = divs[1] + referent * 2;
-  float row2 = divs[1] + referent * 37.5;
-  float row3 = divs[1] + referent * 44;
-  float row4 = divs[1] + referent * 48;
-  float row5 = divs[1] + referent * 50;
+  float row2 = row1 + referent * 35.5;
+  float row3 = row2 + referent * 6.5;
+  float row4 = row3 + referent * 4;
+  float row5 = row4 + referent * 2;
 
 
   // --------------------------------------------- //
@@ -123,7 +123,6 @@ void Divs() {
     } else if (i%4 == 1 && int(i/4) == 7) {
 
       // Play / Pause
-      // Moved 2 referents up because it is larger
       divs[i] = row4;
     } else if (i%4 == 1 && int(i/4) >= 5) {
 

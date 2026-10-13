@@ -81,10 +81,10 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   if (index == 4) {
 
     drawArc(
-      divX + smallerNum(smallerNum(divDimension)),
-      divY + smallerNum(smallerNum(divDimension)),
-      divDimension * 3 / 4,
-      PI+PI*1/2,
+      divX - divDimension,
+      divY + smallerNum(divDimension),
+      divDimension - smallerNum(smallerNum(divDimension)),
+      PI+smallerNum(PI),
       PI+PI*2
       );
 
