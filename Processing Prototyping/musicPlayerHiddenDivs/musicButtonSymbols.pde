@@ -67,7 +67,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawRectangle(
       1,
-      divX-divDimension*3/4,
+      divX-smallerNum(divDimension)-smallerNum(smallerNum(divDimension)),
       divY,
       divDimension,
       divDimension
@@ -81,8 +81,9 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   if (index == 4) {
 
     drawArc(
+      -1,
       divX - divDimension,
-      divY + smallerNum(divDimension),
+      divY,
       divDimension - smallerNum(smallerNum(divDimension)),
       PI+smallerNum(PI),
       PI+PI*2
@@ -91,9 +92,9 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
     // Arrowhead
     drawWideTriangle(
       -1,
-      divX + divDimension * 0.25,
-      divY + divDimension * 0.05,
-      divDimension / 4
+      divX - divDimension,
+      divY - smallerNum(divDimension),
+      smallerNum(smallerNum(divDimension))
       );
   }
 
@@ -103,26 +104,26 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   // --------------------------------------------- //
 
   if (index == 9) {
-/*
+    /*
     drawArc(
-      divX + divDimension / 2,
-      divY + divDimension / 2,
-      divDimension * 3 / 4,
-      225,
-      495
-      );
-
-    // Arrowhead
-    fill(0);
-    triangle(
-      divX + divDimension * 0.75,
-      divY + divDimension * 0.05,
-      divX + divDimension * 0.95,
-      divY + divDimension * 0.25,
-      divX + divDimension * 0.65,
-      divY + divDimension * 0.30
-      );
-      */
+     divX + divDimension / 2,
+     divY + divDimension / 2,
+     divDimension * 3 / 4,
+     225,
+     495
+     );
+     
+     // Arrowhead
+     fill(0);
+     triangle(
+     divX + divDimension * 0.75,
+     divY + divDimension * 0.05,
+     divX + divDimension * 0.95,
+     divY + divDimension * 0.25,
+     divX + divDimension * 0.65,
+     divY + divDimension * 0.30
+     );
+     */
   }
 
 
@@ -343,6 +344,7 @@ void drawMusicDivs(
 // --------------------------------------------- //
 
 void drawArc(
+  float reverse,
   float x,
   float y,
   float d,
