@@ -60,16 +60,15 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawNarrowTriangle(
       -1,
-      divX-smallerNum(divDimension),
-      divY-smallerNum(divDimension),
+      divX - divDimension,
+      divY - smallerNum(divDimension),
       divDimension
       );
 
-    drawRectangle(
-      1,
-      divX-divDimension-smallerNum(smallerNum(divDimension)),
-      divY-smallerNum(divDimension),
-      divDimension,
+    drawNarrowTriangle(
+      -1,
+      divX - smallerNum(divDimension),
+      divY - smallerNum(divDimension),
       divDimension
       );
   }
@@ -103,26 +102,21 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   // --------------------------------------------- //
 
   if (index == 9) {
-    /*
     drawArc(
-     divX + divDimension / 2,
-     divY + divDimension / 2,
-     divDimension * 3 / 4,
-     225,
-     495
-     );
-     
-     // Arrowhead
-     fill(0);
-     triangle(
-     divX + divDimension * 0.75,
-     divY + divDimension * 0.05,
-     divX + divDimension * 0.95,
-     divY + divDimension * 0.25,
-     divX + divDimension * 0.65,
-     divY + divDimension * 0.30
-     );
-     */
+      1,
+      divX,
+      divY,
+      divDimension - smallerNum(smallerNum(divDimension)),
+      270
+      );
+
+    // Arrowhead
+    drawWideTriangle(
+      1,
+      divX,
+      divY - smallerNum(divDimension),
+      smallerNum(smallerNum(divDimension))
+      );
   }
 
 
@@ -319,6 +313,7 @@ void drawMusicDivs(
 //                    DRAW ARC                   //
 // --------------------------------------------- //
 
+
 void drawArc(
   float reverse,
   float x,
@@ -327,13 +322,27 @@ void drawArc(
   float totalAngle
   ) {
 
+  float startAngle;
+  float stopAngle;
+
+  if (reverse == -1) {
+
+    // Back 10: gap remains in the top-left
+    startAngle = 270;
+    stopAngle = 540;
+  } else {
+
+    // Skip 15: gap moves to the top-right
+    startAngle = 0;
+    stopAngle = 270;
+  }
+
   arc(
     x,
     y,
     d,
     d,
-    radians(totalAngle),
-    //PI+smallerNum(PI),
-    radians(totalAngle*2)
+    radians(startAngle),
+    radians(stopAngle)
     );
 }
