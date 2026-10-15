@@ -60,15 +60,15 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawNarrowTriangle(
       -1,
-      divX,
-      divY,
+      divX-smallerNum(divDimension),
+      divY-smallerNum(divDimension),
       divDimension
       );
 
     drawRectangle(
       1,
-      divX-smallerNum(divDimension)-smallerNum(smallerNum(divDimension)),
-      divY,
+      divX-divDimension-smallerNum(smallerNum(divDimension)),
+      divY-smallerNum(divDimension),
       divDimension,
       divDimension
       );
@@ -85,8 +85,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divX - divDimension,
       divY,
       divDimension - smallerNum(smallerNum(divDimension)),
-      PI+smallerNum(PI),
-      PI+PI*2
+      270
       );
 
     // Arrowhead
@@ -160,30 +159,8 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawWideTriangle(
       1,
-      divX,
-      divY,
-      divDimension
-      );
-  }
-
-
-  // --------------------------------------------- //
-  //                FAST FORWARD                  //
-  // --------------------------------------------- //
-
-  if (index==9) {
-
-    drawNarrowTriangle(
-      1,
-      divX,
-      divY,
-      divDimension
-      );
-
-    drawNarrowTriangle(
-      1,
-      divX+smallerNum(smallerNum(divDimension)),
-      divY,
+      divX - smallerNum(divDimension),
+      divY - smallerNum(divDimension),
       divDimension
       );
   }
@@ -197,16 +174,15 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
 
     drawNarrowTriangle(
       1,
-      divX,
-      divY,
+      divX - smallerNum(divDimension),
+      divY - smallerNum(divDimension),
       divDimension
       );
 
-    drawRectangle(
+    drawNarrowTriangle(
       1,
-      divX+smallerNum(smallerNum(divDimension)),
-      divY,
-      divDimension,
+      divX,
+      divY - smallerNum(divDimension),
       divDimension
       );
   }
@@ -267,7 +243,7 @@ void drawWideTriangle(
   triangle(
     divX,
     divY,
-    divX+reverse*smallerNum(divDimension),
+    divX+reverse*divDimension,
     divY+smallerNum(divDimension),
     divX,
     divY+divDimension
@@ -348,8 +324,7 @@ void drawArc(
   float x,
   float y,
   float d,
-  float startAngle,
-  float stopAngle
+  float totalAngle
   ) {
 
   arc(
@@ -357,7 +332,7 @@ void drawArc(
     y,
     d,
     d,
-    startAngle,
-    stopAngle
+    PI+smallerNum(PI),
+    PI+PI*2
     );
 }
