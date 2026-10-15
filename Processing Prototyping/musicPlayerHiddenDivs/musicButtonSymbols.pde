@@ -332,8 +332,8 @@ void drawArc(
     y,
     d,
     d,
-    radians(totalAngle) + reverse*radians(totalAngle),
+    radians(totalAngle),
     //PI+smallerNum(PI),
-    radians(totalAngle)
+    radians(totalAngle*2)
     );
 }
