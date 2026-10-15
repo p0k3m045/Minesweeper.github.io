@@ -291,6 +291,27 @@ void drawRectangle(
 }
 
 
+void drawRectangle(
+  int reverse,
+  float x,
+  float y,
+  float w,
+  float h,
+  float corner) {
+
+  if (reverse==-1) {
+
+    x = x+w-w*1/4;
+  }
+
+  rect(
+    x,
+    y,
+    w*1/4,
+    h
+    );
+}
+
 // --------------------------------------------- //
 //                MUSIC DIVS                     //
 // --------------------------------------------- //
