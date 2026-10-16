@@ -19,9 +19,9 @@ void musicButtonSymbols() {
 
   // Next
   musicSymbol(10, divs[36], divs[37], divs[38]);
-  
+
   // Autoplay
-  musicSymbol(69, divs[4], divs[5], divs[6]);
+  musicSymbol(69, divs[8], divs[9], divs[10]);
 }
 
 
@@ -36,7 +36,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
   divDimension = smallerNum(divDimension);
 
 
-  if (index==5 || index==6 || index==9 || index==10 || index==11) {
+  if (index==5 || index==6 || index==9 || index==10 || index==11 || index == 69) {
 
     // No Square
   } else if (index==3 || index==4) {
@@ -183,16 +183,21 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divDimension
       );
   }
-  
+
+
+  // --------------------------------------------- //
+  //                   AUTOPLAY                    //
+  // --------------------------------------------- //
+
   if (index == 69) {
     drawRectangle(
-    1,
-    divX-smallerNum(divDimension),
-    divY - smallerNum(divDimension),
-    divDimension,
-    smallerNum(divDimension),
-    smallerNum(smallerNum(divDimension))
-    );
+      1,
+      divX - smallerNum(divDimension)-smallerNum(smallerNum(smallerNum(divDimension))),
+      divY - smallerNum(divDimension),
+      divDimension + smallerNum(smallerNum(divDimension)),
+      divDimension,
+      smallerNum(smallerNum(divDimension))
+      );
   }
 }
 
@@ -299,7 +304,7 @@ void drawRectangle(
   rect(
     x,
     y,
-    w*1/4,
+    w,
     h
     );
 }
@@ -321,8 +326,9 @@ void drawRectangle(
   rect(
     x,
     y,
-    w*1/4,
-    h
+    w,
+    h,
+    corner
     );
 }
 
