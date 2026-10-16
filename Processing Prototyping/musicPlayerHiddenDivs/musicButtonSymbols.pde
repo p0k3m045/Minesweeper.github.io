@@ -19,6 +19,9 @@ void musicButtonSymbols() {
 
   // Next
   musicSymbol(10, divs[36], divs[37], divs[38]);
+  
+  // Autoplay
+  musicSymbol(69, divs[4], divs[5], divs[6]);
 }
 
 
@@ -179,6 +182,17 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divY - smallerNum(divDimension),
       divDimension
       );
+  }
+  
+  if (index == 69) {
+    drawRectangle(
+    1,
+    divX-smallerNum(divDimension),
+    divY - smallerNum(divDimension),
+    divDimension,
+    smallerNum(divDimension),
+    smallerNum(smallerNum(divDimension))
+    );
   }
 }
 
