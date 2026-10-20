@@ -193,10 +193,10 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
     drawRectangle(
       1,
       divX - smallerNum(divDimension)-smallerNum(smallerNum(smallerNum(divDimension))),
-      divY - smallerNum(divDimension),
+      divY - smallerNum(smallerNum(divDimension)),
       divDimension + smallerNum(smallerNum(divDimension)),
-      divDimension,
-      smallerNum(smallerNum(divDimension))
+      divDimension - smallerNum(divDimension),
+      divDimension
       );
   }
 }

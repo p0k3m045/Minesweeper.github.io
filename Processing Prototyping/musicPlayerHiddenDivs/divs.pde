@@ -202,7 +202,6 @@ void Divs() {
 
 
     // Inspect the array
-    println(i, divs[i]);
   }
 
 
