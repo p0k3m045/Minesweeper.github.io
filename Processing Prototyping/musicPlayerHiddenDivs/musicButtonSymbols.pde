@@ -87,7 +87,8 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divX - divDimension,
       divY,
       divDimension - smallerNum(smallerNum(divDimension)),
-      270
+      270,
+      540
       );
 
     // Arrowhead
@@ -110,6 +111,7 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divX,
       divY,
       divDimension - smallerNum(smallerNum(divDimension)),
+      0,
       270
       );
 
@@ -198,6 +200,14 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divDimension - smallerNum(divDimension),
       divDimension
       );
+
+    drawArc(
+      1,
+      divX - smallerNum(divDimension),
+      divY,
+      divDimension - smallerNum(smallerNum(divDimension)),
+      0,
+      360);
   }
 }
 
@@ -360,23 +370,9 @@ void drawArc(
   float x,
   float y,
   float d,
-  float totalAngle
+  float startAngle,
+  float stopAngle
   ) {
-
-  float startAngle;
-  float stopAngle;
-
-  if (reverse == -1) {
-
-    // Back 10: gap remains in the top-left
-    startAngle = 270;
-    stopAngle = 540;
-  } else {
-
-    // Skip 15: gap moves to the top-right
-    startAngle = 0;
-    stopAngle = 270;
-  }
 
   arc(
     x,
