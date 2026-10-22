@@ -21,6 +21,9 @@ void setup() {
 
   appWidth = displayWidth;
   appHeight = displayHeight;
+
+  divs[0] = appWidth * 1/4;
+  divs[1] = appHeight * 1/4;
 }
 
 
@@ -138,7 +141,7 @@ void mousePressed() {
     if (mouseX >= divs[4] && mouseX <= divs[4] + divs[6] && mouseY >= divs[5] && mouseY <= divs[5] + divs[7]) {
     } else if (mouseX >= divs[8] && mouseX <= divs[8] + divs[10] && mouseY >= divs[9] && mouseY <= divs[9] + divs[11]) {
     } else {
-      
+
       draggingMusicPlayer = true;
 
       dragOffsetX = mouseX - divs[0];
