@@ -208,8 +208,8 @@ void musicSymbol(int index, float divX, float divY, float divDimension) {
       divDimension - smallerNum(smallerNum(divDimension)),
       0,
       360);
-      
-      drawWideTriangle(
+
+    drawWideTriangle(
       1,
       divX - smallerNum(divDimension) - smallerNum(smallerNum(smallerNum(divDimension))),
       divY - smallerNum(smallerNum(smallerNum(divDimension))),
